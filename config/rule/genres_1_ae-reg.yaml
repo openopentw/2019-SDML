@@ -1,0 +1,19 @@
+---
+# modules
+model: ./model/genres_ae_reg.py
+trainer: ./trainer/trainer_ae_reg.py
+preprocess: ./preprocess/preprocess_ae_reg.py
+model_dir_ratings: ../model_dir/rule/ratings_1
+# input
+genres: ../data/rule/items_rule.csv
+# output
+output: ../output/rule/genres_1.csv
+model_dir: ../model_dir/rule/genres_1
+# args
+args:
+    alpha: 0.5
+    drop_rate: 0.5
+    embd_dim: 20
+    embd_update: true
+    epoch_size: 600
+    hid_dim: 25

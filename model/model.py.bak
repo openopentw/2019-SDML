@@ -1,0 +1,49 @@
+""" This model describes how to classify genres by viewing ratings as regularizer.  """
+
+import torch
+import torch.nn as nn
+
+class Model(nn.Module):
+    """ . """
+    def __init__(self, # pylint: disable=too-many-arguments
+                 user_size,
+                 item_size,
+                 emb_dim,
+                 genre_size):
+
+        super().__init__()
+
+        self.genre_size = genre_size
+
+        # embds
+        self.user_embd = nn.Embedding(user_size, emb_dim)
+        self.user_embd.weight.requires_grad = True
+        self.item_embd = nn.Embedding(item_size, emb_dim)
+        self.item_embd.weight.requires_grad = True
+
+        # classifier
+        self.out = nn.Linear(emb_dim, genre_size)
+
+        # TODO: relu
+
+        # TODO: dropouts
+
+    def forward(self, user, item_1, item_2): # pylint: disable=arguments-differ
+        """ Forward.
+        Args:
+            user: (batch_size,)
+            item_1: (batch_size,)
+            item_2: (batch_size,)
+        Returns:
+            ratings: (batch_size,)
+            genres: (batch_size, genre_size)
+        """
+        user = self.user_embd(user)
+        # (batch_size, emb_dim)
+        item_1 = self.item_embd(item_1)
+        # (batch_size, emb_dim)
+        ratings = torch.bmm(user.squeeze(1), item_1.squeeze(2))
+        # (batch_size)
+        genres = self.out(item_2)
+        # (batch_size, genre_size)
+        return ratings, genres

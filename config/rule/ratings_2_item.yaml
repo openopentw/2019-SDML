@@ -1,0 +1,15 @@
+---
+# code
+model: ./model/ratings_item.py
+trainer: ./trainer/trainer_ratings_item.py
+preprocess: ./preprocess/preprocess_ratings_item.py
+# input
+genres: ../data/rule/items_rule.csv
+item_item: ./rule_np/item_item_genres.npy
+# output
+output: ../output/rule/genres_item.csv
+model_dir: ../model_dir/rule/genres_item
+# args
+args:
+    drop_rate: 0.5
+    hid_dim: 100

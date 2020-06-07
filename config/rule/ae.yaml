@@ -1,0 +1,25 @@
+---
+# modules
+model: ./model/genres_ae.py
+trainer: ./trainer/trainer_ae.py
+preprocess: ./preprocess/preprocess_ae.py
+# input
+# genres: ../data/rule/add_items_rule.csv
+# genres: ../data/rule/items_rule.csv
+genres: ../data/random/items_random.csv
+# output
+output: ../output/random/ae.csv
+output_raw: ../output/random/ae.npy
+model_dir: ../model_dir/random/ae
+# output: ../output/rule/ae.csv
+# output_raw: ../output/rule/ae.npy
+# model_dir: ../model_dir/rule/ae
+# output: ../output/rule/add.csv
+# output_raw: ../output/rule/add.npy
+# model_dir: ../model_dir/rule/add
+# args
+args:
+    drop_rate: 0.5
+    hid_dim: 20
+    tqdm: True
+    seed: 1126

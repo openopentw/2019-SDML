@@ -1,5 +1,5 @@
 ---
-# code
+# modules
 model: ./model/ratings.py
 trainer: ./trainer/trainer_ratings.py
 preprocess: ./preprocess/ratings.py
