@@ -1,0 +1,15 @@
+---
+# code
+model: ./model/ratings.py
+trainer: ./trainer/trainer_ratings.py
+preprocess: ./preprocess/ratings.py
+# input
+ratings: ../data/rule/ratings_rule.csv
+# output
+output: ../output/rule/ratings_1_test.csv
+model_dir: ../model_dir/rule/ratings_1_test
+# args
+args:
+    drop_rate: 0.5
+    embd_dim: 50
+    hid_dim: 10

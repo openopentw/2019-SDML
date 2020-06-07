@@ -1,0 +1,10 @@
+---
+# args
+args:
+    batch_size: 256
+    drop_rate: 0.5
+    embd_dim: 10
+    epoch_size: 200
+    hid_dim: 10
+    seed: 6174
+    valid: 0.1
